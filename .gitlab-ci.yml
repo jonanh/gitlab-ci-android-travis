@@ -41,7 +41,7 @@ functionalTests:
   stage: test
   script:
     - apt-get --quiet update --yes
-    - apt-get --quiet install --yes qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+    - apt-get --quiet install --yes --no-install-recommends qemu-kvm libvirt-bin bridge-utils
     - wget --quiet --output-document=android-wait-for-emulator https://raw.githubusercontent.com/travis-ci/travis-cookbooks/0f497eb71291b52a703143c5cd63a217c8766dc9/community-cookbooks/android-sdk/files/default/android-wait-for-emulator
     - chmod +x android-wait-for-emulator
     - echo y | android-sdk-linux/tools/android --silent update sdk --no-ui --all --filter sys-img-x86-google_apis-${ANDROID_COMPILE_SDK}
