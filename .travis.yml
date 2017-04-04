@@ -1,5 +1,7 @@
 language: android
-jdk: oraclejdk8
+sudo: required
+jdk:
+  - oraclejdk8
 
 env:
   global:
@@ -18,7 +20,7 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - sys-img-armeabi-v7a-google_apis-${ANDROID_API_LEVEL}
+    - sys-img-${ANDROID_ABI}-google_apis-${ANDROID_API_LEVEL}
 
 before_script:
   - echo no | android create avd --force -n test -t android-${ANDROID_API_LEVEL} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
