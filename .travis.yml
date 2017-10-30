@@ -44,6 +44,8 @@ android:
     #- sys-img-${ANDROID_ABI}-google_apis-${ANDROID_API_LEVEL}
     - sys-img-${ANDROID_ABI}-android-24
     - sys-img-armeabi-v7a-android-25
+    - sys-img-armeabi-v7a-android-22
+    - sys-img-x86_64-android-22
 
 licenses:
     - 'android-sdk-preview-license-52d11cd2'
@@ -51,9 +53,13 @@ licenses:
     - 'google-gdk-license-.+'
 
 before_script:
+  #- echo yes | sdkmanager "system-images;android-${API};${TAG};${ABI}"
+  - echo yes | sdkmanager "system-images;android-25;google_apis;armeabi-v7a"
   - android list targets
   #- echo no | android create avd --force -n test -t android-${ANDROID_API_LEVEL} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - echo no | android create avd --force -n test -t android-25 --abi ${ANDROID_ABI}
+  #- echo no | android create avd --force -n test -t android-25 --abi ${ANDROID_ABI}
+  - echo no | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a" -f --abi "armeabi-v7a" --tag "google_apis"
+#  - emulator -avd acib -engine classic -no-window -camera-back none -camera-front none -verbose -qemu -m 512 &
   - emulator -avd test -no-skin -no-audio -no-window &
 
 script:
