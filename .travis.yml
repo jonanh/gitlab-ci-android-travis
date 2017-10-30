@@ -43,8 +43,7 @@ android:
     # System images
     #- sys-img-${ANDROID_ABI}-google_apis-${ANDROID_API_LEVEL}
     - sys-img-${ANDROID_ABI}-android-24
-    - sys-img-armeabi-v7a-android-21
-    - sys-img-armeabi-v7a-android-24
+    - sys-img-armeabi-v7a-android-25
 
 licenses:
     - 'android-sdk-preview-license-52d11cd2'
@@ -54,7 +53,7 @@ licenses:
 before_script:
   - android list targets
   #- echo no | android create avd --force -n test -t android-${ANDROID_API_LEVEL} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - echo no | android create avd --force -n test -t android-21 --abi ${ANDROID_ABI}
+  - echo no | android create avd --force -n test -t android-25 --abi ${ANDROID_ABI}
   - emulator -avd test -no-skin -no-audio -no-window &
 
 script:
