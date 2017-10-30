@@ -54,7 +54,7 @@ licenses:
 before_script:
   - android list targets
   #- echo no | android create avd --force -n test -t android-${ANDROID_API_LEVEL} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - echo no | android create avd --force -n test -t android-24 --abi ${ANDROID_ABI}
+  - echo no | android create avd --force -n test -t android-21 --abi ${ANDROID_ABI}
   - emulator -avd test -no-skin -no-audio -no-window &
 
 script:
