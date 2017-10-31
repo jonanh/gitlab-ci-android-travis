@@ -42,7 +42,6 @@ android:
     - extra-android-m2repository
 
     # System images
-    #- sys-img-${ANDROID_ABI}-google_apis-${ANDROID_API_LEVEL}
     - android-${EMULATOR_API_LEVEL}
     - sys-img-${ANDROID_ABI}-android-${EMULATOR_API_LEVEL}
 
@@ -51,18 +50,7 @@ licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-#before_install:
-#    - sdkmanager tools
-#    - sdkmanager "system-images;android-18;default;armeabi-v7a"
-
 before_script:
-  #- echo yes | sdkmanager "system-images;android-${API};${TAG};${ABI}"
-  #- echo yes | sdkmanager "system-images;android-25;google_apis;armeabi-v7a"
-  #- android list targets
-  #- echo no | android create avd --force -n test -t android-${ANDROID_API_LEVEL} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  #- echo no | android create avd --force -n test -t android-25 --abi ${ANDROID_ABI}
-  #- echo no | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a" -f --abi "armeabi-v7a" --tag "google_apis"
-  #- emulator -avd acib -engine classic -no-window -camera-back none -camera-front none -verbose -qemu -m 512 &
   - echo no | android create avd --force -n test -t android-${EMULATOR_API_LEVEL} --abi ${ANDROID_ABI}
   - emulator -avd test -no-skin -no-audio -no-window &
 
