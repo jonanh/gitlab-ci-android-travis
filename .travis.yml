@@ -43,6 +43,7 @@ android:
 
     # System images
     #- sys-img-${ANDROID_ABI}-google_apis-${ANDROID_API_LEVEL}
+    - android-${EMULATOR_API_LEVEL}
     - sys-img-${ANDROID_ABI}-android-${EMULATOR_API_LEVEL}
 
 licenses:
@@ -50,9 +51,9 @@ licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-before_install:
-    - sdkmanager tools
-    - sdkmanager "system-images;android-18;default;armeabi-v7a"
+#before_install:
+#    - sdkmanager tools
+#    - sdkmanager "system-images;android-18;default;armeabi-v7a"
 
 before_script:
   #- echo yes | sdkmanager "system-images;android-${API};${TAG};${ABI}"
